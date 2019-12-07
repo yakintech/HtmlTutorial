@@ -1,0 +1,15 @@
+.lorem{
+    cursor: pointer;
+    color: lightblue;
+}
+.lorem:hover {
+    color: blue;
+    font-size: larger;
+}
+.lorem:focus {
+    color: red;
+    font-size: larger;
+}
+#container{
+    text-align: center;
+}
