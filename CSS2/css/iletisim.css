@@ -4,4 +4,20 @@
 .iletisim-control{
     float: left;
     width: 50%;
+    margin-top: 2%;
 }
+.file{
+    width: 100%;
+}
+#container{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+@media only screen and (max-width: 924px) {
+    .iletisim-control{
+        float: left;
+        width: 100%;
+        margin-top: 1%;
+    }
+  }
