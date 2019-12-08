@@ -18,10 +18,16 @@
         cursor: pointer;
     }
     .altmenu li{
-        display: block;
+        display: none;
         margin-left: 2%;
         cursor: pointer;
+        width: 20px;
     }
+    
+    .x:nth-child(2):hover .altmenu li{
+        display: block;
+    }
+    
 
     li:hover {
         color: lightblue;
@@ -30,21 +36,24 @@
     .menu li:first-child {
         margin-left: 0px;
     }
+    .x{
+        float: left;
+    }
 </style>
 
 <body>
     <div style="margin-left: 20%; margin-right: 20%;">
         <ul class="menu">
-            <li>Anasayfa</li>
-            <li>Kategoriler
+            <li class="x">Anasayfa</li>
+            <li class="x">Kategoriler
                 <ul class="altmenu">
                     <li>Elektronik</li>
                     <li>Kamp Malzemeleri</li>
                     <li>Spor</li>
                 </ul>
             </li>
-            <li>Hakkımızda</li>
-            <li>İletişim</li>
+            <li class="x">Hakkımızda</li>
+            <li class="x">İletişim</li>
         </ul>
     </div>
 
