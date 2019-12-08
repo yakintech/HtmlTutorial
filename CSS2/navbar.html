@@ -12,25 +12,37 @@
         padding: 0;
     }
 
-    ul li {
+    .menu li {
         display: inline;
         margin-left: 2%;
         cursor: pointer;
     }
-    li:hover{
+    .altmenu li{
+        display: block;
+        margin-left: 2%;
+        cursor: pointer;
+    }
+
+    li:hover {
         color: lightblue;
     }
 
-    li:first-child {
+    .menu li:first-child {
         margin-left: 0px;
     }
 </style>
 
 <body>
     <div style="margin-left: 20%; margin-right: 20%;">
-        <ul>
+        <ul class="menu">
             <li>Anasayfa</li>
-            <li>Kategoriler</li>
+            <li>Kategoriler
+                <ul class="altmenu">
+                    <li>Elektronik</li>
+                    <li>Kamp Malzemeleri</li>
+                    <li>Spor</li>
+                </ul>
+            </li>
             <li>Hakkımızda</li>
             <li>İletişim</li>
         </ul>
