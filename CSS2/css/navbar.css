@@ -1,0 +1,28 @@
+ul {
+    padding: 0;
+}
+.menu li {
+    display: inline;
+    margin-left: 2%;
+    cursor: pointer;
+}
+.altmenu li{
+    display: none;
+    margin-left: 2%;
+    cursor: pointer;
+    width: 200px;
+}
+
+.x:nth-child(2):hover .altmenu li{
+    display: block;
+}
+li:hover {
+    color: lightblue;
+}
+
+.menu li:first-child {
+    margin-left: 0px;
+}
+.x{
+    float: left;
+}
