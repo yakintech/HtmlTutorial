@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body style="text-align: center;">
+    <div>
+        <label>Sayı 1</label>
+        <input type="text" id="sayi1" />
+    </div>
+    <div>
+        <label>Sayı 2</label>
+        <input type="text" id="sayi2" />
+    </div>
+    <div>
+        <button id="btntopla" onclick="Topla()">Topla</button>
+    </div>
+    <button onclick="Merhaba()">Merhaba</button>
+</body>
+
+</html>
+<script>
+    function Merhaba() {
+        alert("Merhaba JS!");
+    }
+
+    function Topla() {
+        var x =  Number(document.getElementById("sayi1").value);
+        var y = Number(document.getElementById("sayi2").value);
+
+        alert(x + y);
+    }
+
+</script>
