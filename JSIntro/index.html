@@ -20,19 +20,23 @@
     <div>
         <button id="btntopla" onclick="Topla()">Topla</button>
     </div>
-    <button onclick="Merhaba()">Merhaba</button>
+    <!-- <button onclick="Merhaba()">Merhaba</button> -->
 </body>
 
 </html>
 <script>
+
+    document.getElementById("sayi1").value = 0;
+    document.getElementById("sayi2").value = 0;
+
+
     function Merhaba() {
         alert("Merhaba JS!");
     }
-
+    //Bu fonksiyon toplama işlemi gerçekleştirir
     function Topla() {
         var x =  Number(document.getElementById("sayi1").value);
         var y = Number(document.getElementById("sayi2").value);
-
         alert(x + y);
     }
 
