@@ -1,0 +1,2 @@
+1) Input text den girilen sayıyın karesini başka bir text e yazdır 
+2) 3 ayrı textboxtan girilen sayıların ortalamasını bir label a yaz 
