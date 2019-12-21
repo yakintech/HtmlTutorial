@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body style="text-align: center;">
+    <div>
+        <input type="text" id="metin">
+        <button onclick="Ekle()">Ekle</button>
+    </div>
+    <div>
+        <button onclick="GetCount()">Kaç Adet?</button>
+    </div>
+</body>
+
+</html>
+<script>
+    var sehirler = ["İzmir", "İstanbul"];
+    function Ekle() {
+        var sehir = document.getElementById("metin").value;
+        sehirler.push(sehir);
+    }
+
+    function GetCount(){
+        alert(sehirler.length);
+    }
+</script>

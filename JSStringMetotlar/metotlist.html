@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body style="text-align: center;">
+    <div>
+        <input type="text" id="u1">
+            <button onclick="Upper()">Upper</button>
+        <input type="text" id="u2">
+    </div>
+    <div>
+        <input type="text" id="l1">
+            <button onclick="Lower()">Lower</button>
+        <input type="text" id="l2">
+    </div>
+    <div>
+        <input type="text" id="t1">
+            <button onclick="Trim()">Trim</button>
+        <input type="text" id="t2">
+    </div>
+    <div>
+        <input type="text" id="r1">
+            <button onclick="Replace()">Replace</button>
+        <input type="text" id="r2">
+    </div>
+</body>
+</html>
+<script>
+function Upper(){
+var x = document.getElementById("u1").value;
+document.getElementById("u2").value = x.toUpperCase(); 
+}
+
+function Lower(){
+var x = document.getElementById("l1").value;
+document.getElementById("l2").value = x.toLowerCase(); 
+}
+
+function Trim(){
+    var x = document.getElementById("t1").value;
+    document.getElementById("t2").value = x.trim(); 
+}
+function Replace(){
+    var x = document.getElementById("r1").value;
+    document.getElementById("r2").value = x.replace("microsoft","bilge adam") 
+}
+
+var phone = "+905437331470";
+var y = phone.substring(0,3) + " " + phone.substring(3);
+//+90 5437331470
+// console.log(y);
+
+var str = "Please locate where locate occurs!";
+var pos = str.indexOf("l");
+// console.log(pos);
+var data = "çağatay yıldız";
+
+var isimler = data.split(" ");
+
+var sehirler = "İzmir,İstanbul,Ankara";
+var sonuc = sehirler.split(',');
+</script>

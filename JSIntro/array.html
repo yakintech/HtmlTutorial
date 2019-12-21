@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body style="text-align: center;">
+    <div>
+        <input type="text" class="x">
+        <input type="text" class="x">
+        <input type="text" class="x">
+    </div>
+    <div>
+        <input type="text" id="y">
+        <button onclick="TextDegis()">Değiş</button>
+    </div>
+</body>
+</html>
+<script>
+function TextDegis(){
+    var deger = document.getElementById("y").value;
+    document.getElementsByClassName("x")[0].value = deger;
+    document.getElementsByClassName("x")[1].value = deger;
+    document.getElementsByClassName("x")[2].value = deger;
+}
+
+var sayidizi = [7,3,-79];
+
+alert(sayidizi[2])
+</script>
