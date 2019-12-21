@@ -12,7 +12,7 @@
         <button onclick="Ekle()">Ekle</button>
     </div>
     <div>
-       <ul>
+       <ul id="list">
            <li>İstanbul</li>
        </ul>
     </div>
@@ -21,6 +21,9 @@
 <script>
 function Ekle(){
     var data = document.getElementById("sehir").value;
-    
+    var lielement = document.createElement("li");
+    lielement.innerHTML = data;
+    var ulelement = document.getElementById("list");
+    ulelement.appendChild(lielement);
 }
 </script>
