@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .at{
+            left: 20px;
+            position: relative;
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <button id="at1" class="at">Xavi</button>
+    </div>
+    <div>
+        <button id="at2" class="at">John</button>
+    </div>
+    <div>
+        <button id="at3" class="at">BOLD PILOT</button>
+    </div>
+    <div>
+        <button onclick="Start()">START</button>
+    </div>
+</body>
+
+</html>
+<script>
+    var at1 = document.getElementById("at1");
+    var at2 = document.getElementById("at2");
+    var at3 = document.getElementById("at3");
+
+    function Start() {
+        setInterval(function () {
+            var r1 = Math.floor(Math.random() * 100);
+            var r2 = Math.floor(Math.random() * 100);
+            var r3 = Math.floor(Math.random() * 100);
+
+            var at1konum = at1.style.left;
+            var l1 = Number(at1konum.replace("px",""));
+            at1.style.left = l1 + r1 + "px";
+
+            var at2konum = at2.style.left;
+            var l2 = Number(at2konum.replace("px",""));
+            at2.style.left = l2 + r2 + "px";
+
+            var at3konum = at3.style.left;
+            var l3 = Number(at3konum.replace("px",""));
+            at3.style.left = l3 + r3 + "px";
+
+        }, 50)
+    }
+
+    //bir bitiş çizgisi koy. butonların genişliğini eşitle (istersen arka plan foto koy) hangi at o çizgiyi geçerse o atın ismi ekranda yazsın ve timer dursun
+</script>
