@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="sayi">
+    <button onclick="Yazdir()">Gün Yazdır</button>
+</body>
+</html>
+<script>
+// Ekranan girilen sayıya göre günü yazdır.
+function Yazdir(){
+    var sayi = Number(document.getElementById("sayi").value);
+    
+    var gundizi = ["Pazartesi","Salı","Çarşamba","Perşembe"];
+    alert(gundizi[sayi - 1]);
+
+    if(sayi == 1){
+        alert("Pazartesi");
+    }
+    if (sayi == 2) {
+        alert("Salı")
+    }
+}
+</script>

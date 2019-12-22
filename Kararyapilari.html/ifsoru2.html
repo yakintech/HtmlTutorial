@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="fiyat1">
+    <input type="text" id="fiyat2">
+<button onclick="Hesapla()">Hesapla</button>
+</body>
+</html>
+<script>
+//2) Klavyeden iki ürünün fiyatı girildiğinde toplam fiyat 200 TL’den fazla ise, 2.üründen %25 indirim yaparak ödenecek tutarı göster 
+
+function Hesapla(){
+    var fiyat1 = Number(document.getElementById("fiyat1").value);
+    var fiyat2 = Number(document.getElementById("fiyat2").value);
+
+    var toplam = fiyat1 + fiyat2;
+
+    if (toplam > 200) {
+        toplam = fiyat1 + (fiyat2 * 0.75);
+       // fiyat2 = fiyat2 * 0.75;
+    }
+
+    // alert(toplam);
+
+    //çalışır
+     //alert(fiyat1 + fiyat2);
+    
+    // if (toplam > 200) {
+    //     var sonuc = fiyat1 + (fiyat2 * 0.75);
+    //     alert(sonuc);
+    // }
+    // else{
+    //     alert(toplam);
+    // }
+}
+
+</script>

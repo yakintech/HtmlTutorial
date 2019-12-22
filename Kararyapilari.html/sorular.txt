@@ -1,5 +1,5 @@
 //Sorular
-Ekrandan girilen sayı 100 den büyükse ekrana “PAHALI ” yazdır 
-Klavyeden iki ürünün fiyatı girildiğinde toplam fiyat 200 TL’den fazla ise, 2.üründen %25 indirim yaparak ödenecek tutarı göster 
-Ekranan girilen sayıya göre günü yazdır.
-Girilen 3 sayıdan en az biri 50’den büyükse “Yeterli”, aksi halde “Yetersiz” mesajı veren program 
+1) Ekrandan girilen sayı 100 den büyükse ekrana "PAHALI" yazdır 
+2) Klavyeden iki ürünün fiyatı girildiğinde toplam fiyat 200 TL’den fazla ise, 2.üründen %25 indirim yaparak ödenecek tutarı göster 
+3) Ekranan girilen sayıya göre günü yazdır.
+4) Girilen 3 sayıdan en az biri 50’den büyükse “Yeterli”, aksi halde “Yetersiz” mesajı veren program 

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="sayi1">
+    <input type="text" id="sayi2">
+    <input type="text" id="sayi3">
+    <div>
+        <button onclick="Hesapla()">Hesapla</button>
+    </div>
+</body>
+</html>
+<script>
+//Girilen 3 sayıdan en az biri 50’den büyükse “Yeterli”, aksi halde “Yetersiz” mesajı veren program 
+function Hesapla(){
+    var sayi = document.getElementById("sayi1").value;
+    var sayi2 = document.getElementById("sayi2").value;
+    var sayi3 = document.getElementById("sayi3").value;
+
+    if((sayi > 50) || (sayi2 > 50) || (sayi3 > 50))
+    {
+        alert("Yeterli");
+    }
+    else{
+        alert("Yetersiz");
+    }
+
+}
+</script>
