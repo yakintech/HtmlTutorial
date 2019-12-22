@@ -36,8 +36,10 @@
     var at2 = document.getElementById("at2");
     var at3 = document.getElementById("at3");
 
+    var x = 600;
     function Start() {
         setInterval(function () {
+
             var r1 = Math.floor(Math.random() * 100);
             var r2 = Math.floor(Math.random() * 100);
             var r3 = Math.floor(Math.random() * 100);
@@ -55,6 +57,8 @@
             at3.style.left = l3 + r3 + "px";
 
         }, 50)
+
+
     }
 
     //bir bitiş çizgisi koy. butonların genişliğini eşitle (istersen arka plan foto koy) hangi at o çizgiyi geçerse o atın ismi ekranda yazsın ve timer dursun
