@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="sayi">
+    <button onclick="Hesapla()">KDVHesapla</button>
+</body>
+
+</html>
+<script>
+    // tutar 0 veya 0 ın altındaysa işlem yapma DEĞİLSE %18 den kdv hesapla
+    function Hesapla() {
+        var fiyat = document.getElementById("sayi").value;
+
+        if (fiyat <= 0) {
+            alert("Lütfen 0 ın üstünde bir değer giriniz!");
+        }
+        else {
+            var sonuc = Number(fiyat) * 1.18;
+            alert(sonuc);
+        }
+    }
+
+    var metin = "bilge adam";
+    var sayi = -5.78;
+    //boolean
+    var onlinedurum = true;
+
+    var result = 3 > 0;
+    // alert(result)
+
+    //kullanıcı adı cagatay ve şifre 123 ise
+    // var ad = document.getElementById("ad").value;
+    // var sifre = document.getElementById("sifre").value;
+
+    // if(ad == "Çağatay" && sifre == "123")
+    // {
+
+    // }
+
+    //girilen ad çağatay veya ahmet ise
+    var ad = document.getElementById("ad").value;
+
+    if(ad == "Çağatay" || ad == "ahmet"){
+
+    }
+
+    //girilen ad bilge adam DEĞİLSE
+    if(ad != "bilge adam"){
+        
+    }
+
+    var durum = true;
+    durum = !durum;
+
+
+
+</script>
