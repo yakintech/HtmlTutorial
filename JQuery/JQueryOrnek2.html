@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +8,36 @@
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
+
 <body>
     <input type="text" id="data">
-    <button>Ekle</button>
+    <button id="ekle">Ekle</button>
+    <button id="temizle">Temizle</button>
     <ul>
-        <li>İzmir</li>
     </ul>
 
 </body>
+
 </html>
 <script>
-//jquery append kullanılacak
-$("button").click(function(){
-    var veri = $("#data").val();
-    $("ul").append("<li>" + veri + "</li>");
-})
+    //jquery append kullanılacak
+    $("#ekle").click(function () {
+        var veri = $("#data").val();
+        $("ul").append("<li>" + veri + "</li>");
+    })
+
+    $("#temizle").click(function () {
+        $("ul li").fadeOut();
+    })
+
+    $("li").click(function() {
+        console.log("li click!")
+        // $(this).fadeOut();
+    });
+
+    $(document).on("click","li",function(){
+       $(this).fadeOut();
+    });
+    
+
 </script>

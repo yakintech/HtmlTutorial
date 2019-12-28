@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <p id="lorem1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi et optio quidem facilis voluptas odit provident, error natus tempora debitis ducimus, saepe hic dignissimos accusantium, ex tenetur explicabo ad nostrum.</p>
+    <p id="lorem2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi et optio quidem facilis voluptas odit provident, error natus tempora debitis ducimus, saepe hic dignissimos accusantium, ex tenetur explicabo ad nostrum.</p>
+</body>
+</html>
+<script>
+
+
+//tıklanılan p elementinin id sini ekrana yazdır?
+$(document).on("click","p",function(){
+    var idsonuc = $(this).attr("id");
+    console.log(idsonuc);
+    // $(this).fadeOut();
+})
+</script>
