@@ -13,8 +13,13 @@
     <ul>
         <li>İzmir</li>
     </ul>
+
 </body>
 </html>
 <script>
 //jquery append kullanılacak
+$("button").click(function(){
+    var veri = $("#data").val();
+    $("ul").append("<li>" + veri + "</li>");
+})
 </script>
