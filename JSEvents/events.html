@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button id="btn">Click!</button>
+    </div>
+    <div>
+        <button>Click2!</button>
+    </div>
+    <div>
+        <select id="ulke">
+            <option value="1">Türkiye</option>
+            <option value="2">Almanya</option>
+        </select>
+    </div>
+</body>
+</html>
+<script>
+document.getElementById("btn").addEventListener("click",function(){
+    alert("Hello EVENTS!")
+});
+
+document.getElementById("ulke").addEventListener("change",function(a){
+    console.log(a);
+    // alert("CHANGE!!")
+})
+</script>
