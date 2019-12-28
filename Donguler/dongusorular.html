@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <input type="text" id="sayi">
+    <button id="btn">Toplam</button>
 </body>
+
 </html>
 
 <script>
-//bir input ve bir button koy. Inputa girilen sayıya kadar olan sayıların toplamını alert olarak ekrana yaz. (Örneğin 3 girdiyse 1+2+3)
-
+    //bir input ve bir button koy. Inputa girilen sayıya kadar olan sayıların toplamını alert olarak ekrana yaz. (Örneğin 3 girdiyse 1+2+3+4+5)
+    var toplam = 0;
+    document.getElementById("btn").addEventListener("click", function () {
+        var sayi = Number(document.getElementById("sayi").value);
+        for(i=1;i<=sayi;i++){
+            toplam = toplam + i;
+        }
+    })
 </script>
