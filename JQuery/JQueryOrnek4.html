@@ -114,7 +114,11 @@
             "<td>" + isdurum + "</td>"+
             "<td style='cursor:pointer'>Sil</td></tr>"
         );
-
         // $("tr").addClass("bilgeadam");
     })
+
+$(document).on("click","tr td",function(){
+    $(this).parent().remove();
+})
+
 </script>
