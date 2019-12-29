@@ -10,11 +10,11 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <style>
-        .bilgeadam{
+        .bilgeadam {
             color: red;
             font-weight: 600;
         }
-        </style>
+    </style>
 </head>
 
 <body>
@@ -47,9 +47,9 @@
             </div>
             <div class="form-group">
                 <label><input type="checkbox" value="0" name="isdurum">Part Time</label>
-                <label><input type="checkbox" value="0" name="isdurum">Tam Zamanlı</label>
-                <label><input type="checkbox" value="0" name="isdurum">Free</label>
-                <label><input type="checkbox" value="0" name="isdurum">Parça başı</label>
+                <label><input type="checkbox" value="1" name="isdurum">Tam Zamanlı</label>
+                <label><input type="checkbox" value="2" name="isdurum">Free</label>
+                <label><input type="checkbox" value="3" name="isdurum">Parça başı</label>
 
             </div>
             <div class="form-group">
@@ -78,8 +78,14 @@
 
 </html>
 <script>
-   
+
     $(document).on("click", "button", function () {
+        var isdurum = "";
+        $('input[name="isdurum"]:checked').each(function () {
+            isdurum = isdurum + $(this).parent().text() + ", "
+        });
+
+
         //seçilen option value
         var optionvalue = $("#ulke option:selected").val();
         var optiontext = $("#ulke option:selected").text();
@@ -87,13 +93,13 @@
         //seçilen radio value
         var sgkdurum = $("input[name='sgk']:checked").val();
         var sgktext = "";
-        if(sgkdurum == 0){
+        if (sgkdurum == 0) {
             sgktext = "SGK YOK!";
         }
-        else{
+        else {
             sgktext = "Asgariden yatıyor";
         }
-         
+
         var ad = $("#ad").val();
         var soyad = $("#soyad").val();
         var meslek = $("#meslek").val();
@@ -101,10 +107,12 @@
 
         $("table").append(`<tr class="bilgeadam"><td>` + ad + "</td>" +
             "<td>" + soyad + "</td>" +
-            "<td>" + meslek + "</td>" + 
-            "<td>" + ulke + "</td>"+ 
-            "<td>" + sgktext + "</td></tr>"
+            "<td>" + meslek + "</td>" +
+            "<td>" + ulke + "</td>" +
+            "<td>" + sgktext + "</td>" +
+            "<td>" + isdurum + "</td></tr>"
         );
+
         // $("tr").addClass("bilgeadam");
     })
 </script>
