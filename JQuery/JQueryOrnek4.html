@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        .bilgeadam{
+            color: red;
+            font-weight: 600;
+        }
+        </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <div class="form-group">
+                <label>Ad</label>
+                <input type="text" id="ad" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Soyad</label>
+                <input type="text" id="soyad" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Meslek</label>
+                <input type="text" id="meslek" class="form-control">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success">Ekle</button>
+            </div>
+        </div>
+        <div>
+            <table class="table">
+                <tr>
+                    <th>Ad</th>
+                    <th>Soyad</th>
+                    <th>Meslek</th>
+                </tr>
+                <!-- <tr>
+                    <td>Çağatay</td>
+                    <td>Yıldız</td>
+                    <td>Vampir</td>
+                </tr> -->
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    $(document).on("click", "button", function () {
+        var ad = $("#ad").val();
+        var soyad = $("#soyad").val();
+        var meslek = $("#meslek").val();
+
+        $("table").append(`<tr class="bilgeadam"><td>` + ad + "</td>" +
+            "<td>" + soyad + "</td>" +
+            "<td>" + meslek + "</td>" + "</tr>"
+        );
+        // $("tr").addClass("bilgeadam");
+    })
+</script>
