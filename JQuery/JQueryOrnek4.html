@@ -33,11 +33,17 @@
                 <input type="text" id="meslek" class="form-control">
             </div>
             <div class="form-group">
-                <select class="form-control">
-                    <option>Türkiye</option>
-                    <option>Almanya</option>
-                    <option>Grönland(Özerk)</option>
+                <select class="form-control" id="ulke">
+                    <option value="90">Türkiye</option>
+                    <option value="49">Almanya</option>
+                    <option value="82">Grönland(Özerk)</option>
                 </select>
+            </div>
+            <div class="form-group">
+                <label>SGK Durum</label>
+                <label><input type="radio" name="sgk">Var</label>
+                <label><input type="radio" name="sgk">Yok</label>
+
             </div>
             <div class="form-group">
                 <button class="btn btn-success">Ekle</button>
@@ -63,14 +69,22 @@
 
 </html>
 <script>
+   
     $(document).on("click", "button", function () {
+        //seçilen option value
+        var optionvalue = $("#ulke option:selected").val();
+        var optiontext = $("#ulke option:selected").text();
+
+         
         var ad = $("#ad").val();
         var soyad = $("#soyad").val();
         var meslek = $("#meslek").val();
+        var ulke = $("#ulke").val();
 
         $("table").append(`<tr class="bilgeadam"><td>` + ad + "</td>" +
             "<td>" + soyad + "</td>" +
-            "<td>" + meslek + "</td>" + "</tr>"
+            "<td>" + meslek + "</td>" + 
+            "<td>" + ulke + "</td>"+ "</tr>"
         );
         // $("tr").addClass("bilgeadam");
     })
