@@ -40,9 +40,16 @@
                 </select>
             </div>
             <div class="form-group">
-                <label>SGK Durum</label>
-                <label><input type="radio" name="sgk">Var</label>
-                <label><input type="radio" name="sgk">Yok</label>
+                <label>SGK Giriş</label>
+                <label><input type="radio" value="0" name="sgk">Yok</label>
+                <label><input type="radio" value="1" name="sgk">Var</label>
+
+            </div>
+            <div class="form-group">
+                <label><input type="checkbox" value="0" name="isdurum">Part Time</label>
+                <label><input type="checkbox" value="0" name="isdurum">Tam Zamanlı</label>
+                <label><input type="checkbox" value="0" name="isdurum">Free</label>
+                <label><input type="checkbox" value="0" name="isdurum">Parça başı</label>
 
             </div>
             <div class="form-group">
@@ -56,6 +63,8 @@
                     <th>Soyad</th>
                     <th>Meslek</th>
                     <th>Ülke</th>
+                    <th>SGK</th>
+                    <th>İş Durum</th>
                 </tr>
                 <!-- <tr>
                     <td>Çağatay</td>
@@ -75,6 +84,15 @@
         var optionvalue = $("#ulke option:selected").val();
         var optiontext = $("#ulke option:selected").text();
 
+        //seçilen radio value
+        var sgkdurum = $("input[name='sgk']:checked").val();
+        var sgktext = "";
+        if(sgkdurum == 0){
+            sgktext = "SGK YOK!";
+        }
+        else{
+            sgktext = "Asgariden yatıyor";
+        }
          
         var ad = $("#ad").val();
         var soyad = $("#soyad").val();
@@ -84,7 +102,8 @@
         $("table").append(`<tr class="bilgeadam"><td>` + ad + "</td>" +
             "<td>" + soyad + "</td>" +
             "<td>" + meslek + "</td>" + 
-            "<td>" + ulke + "</td>"+ "</tr>"
+            "<td>" + ulke + "</td>"+ 
+            "<td>" + sgktext + "</td></tr>"
         );
         // $("tr").addClass("bilgeadam");
     })
