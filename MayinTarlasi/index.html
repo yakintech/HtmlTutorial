@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <title>Document</title>
+    <style>
+    div button{
+        height: 50px;
+        width: 50px;
+    }
+    </style>
+</head>
+<body style="text-align: center;">
+    <button id="start">Start!</button>
+    <div class="game">
+
+    </div>
+</body>
+</html>
+<script>
+     var mayinlar = [];
+    $("#start").click(function(){
+       
+
+        for(i=0;i<5;i++){
+            var mayin =  Math.floor(Math.random() * 25);
+            mayinlar.push(mayin);
+        }
+        
+        for(i=1;i<=25;i++){
+            if(i % 5 == 1){
+                $(".game").append("<p><button id='"+i+"'></button></p>")
+            }
+            else{
+                $(".game p:last").append("<button id='"+i+"'></button>")
+            }
+     
+        }
+    })
+
+    $(document).on("click",".game button",function(){
+        var id = $(this).attr("id");
+        // mayinlar
+    })
+</script>
