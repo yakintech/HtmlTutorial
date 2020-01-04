@@ -21,6 +21,7 @@
             <th>ID</th>
             <th>Company Name</th>
             <th>City</th>
+            <th>Country</th>
             <th>İşlem</th>
         </tr>
     </table>
@@ -33,14 +34,18 @@ $.getJSON("https://northwind.now.sh/api/suppliers",function(data){
     total = data.length;
     $("#total").text(total);
     $.each(data,function(key,value){
-        // console.log(value);
-        //data[i]
+        
         $("table").append("<tr>" +
         "<td>" + value.id + "</td>" +
         "<td>" + value.companyName + "</td>" +
         "<td>" + value.address.city + "</td>" + 
+        "<td>" + value.address.country + "</td>" + 
         "<td class='remove'>" + "Sil"  + "</td></tr>"
         );
+
+        if(value.address.country == "Germany"){
+            $("tr:last").css("background-color","red");
+        }
     });
 
     // $.map(data,function(value){
