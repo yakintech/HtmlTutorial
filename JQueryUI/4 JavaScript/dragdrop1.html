@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        img {
+            height: 200px;
+            margin-top: 10px;
+            margin-left: 35px;
+        }
+        
+        #div {
+            height: 225px;
+        }
+        
+        .height {
+            height: 225px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row row-cols-6 no-gutters mt-5" id="numbers"> </div>
+
+        <div style="display: none;" id="div" class="row border rounded no-gutters shadow-sm" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+        </div>
+    </div>
+
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+            var imgId = data;
+            var divId = ev.target.id;
+
+            if (divId != "div") {
+                if (data.replace("drag", "") == divId.replace("div", "")) {
+                    document.getElementById(divId).style.backgroundColor = "#01FF70";
+                } else {
+                    document.getElementById(divId).style.backgroundColor = "#FF4136";
+                }
+            }
+        }
+    </script>
+
+    <script>
+        (function Load() {
+
+            var numbers = [];
+            var index = 0;
+            while (true) {
+                var number = Math.floor(Math.random() * 10);
+
+                if (numbers.indexOf(number) == -1) {
+                    numbers.push(number)
+                    index++;
+                }
+                if (index == 10) {
+                    break;
+                }
+            }
+            index = 0;
+            var timer = setInterval(function() {
+                let div = document.createElement("div");
+                div.className = "col border rounded height mr-1 mb-1 shadow-sm";
+                div.setAttribute("id", "div" + index);
+                div.setAttribute("ondrop", "drop(event)");
+                div.setAttribute("ondragover", "allowDrop(event)");
+
+                if (index == numbers[index]) {
+                    div.style.backgroundColor = "#01FF70";
+                }
+
+                let img = document.createElement("img");
+                img.src = "../img/img" + numbers[index] + ".png";
+                img.clasNane = "mt-3";
+
+                img.setAttribute("id", "drag" + numbers[index]);
+                img.setAttribute("draggable", "true");
+                img.setAttribute("ondrop", "drop(event)");
+                img.setAttribute("ondragstart", "drag(event)");
+                img.setAttribute("ondragover", "allowDrop(event)");
+
+                div.append(img);
+                let number = document.getElementById("numbers");
+                div.appendChild(img);
+                number.appendChild(div);
+
+                index++;
+                if (index == numbers.length) {
+                    clearInterval(timer);
+                    document.getElementById("div").style.display = "block"
+                }
+            }, 100)
+
+
+        })();
+    </script>
+
+</body>
+
+</html>
