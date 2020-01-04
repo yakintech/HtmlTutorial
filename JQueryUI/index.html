@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <script>
+        $(function () {
+            $("#sortable").sortable({
+                start:function(){
+                },
+                change:function(event,data){
+                    // console.log(data);
+                },
+                update:function(event,ui){
+                    var x = $("ul li:first").attr("id");
+                }
+            });
+        });
+    </script>
+
+    <script>
+    
+    $(".main").click(})
+    
+    </script>
+</head>
+<body style="text-align: center;">
+<h1>Haberler</h1>
+    <ul id="sortable">
+        <li id="1">Rammstein - Münih</li>
+        <li id="2">Kahtalı Mıçı - İzmir</li>
+        <li id="3">Deep Purple - İstanbul</li>
+        <li id="4">Iron Maiden - Trabzon</li>
+        <li id="5">Parkway Drive - Edirne</li>
+
+    </ul>
+
+</body>
+
+</html>
