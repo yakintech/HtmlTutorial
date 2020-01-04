@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+    .remove{
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body style="text-align: center;">
+<h1>Ürün Listesi</h1>
+<span>Ürün Adet:</span>
+<span id="total"></span>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Company Name</th>
+            <th>City</th>
+            <th>İşlem</th>
+        </tr>
+    </table>
+</body>
+</html>
+<script>
+    var total = 0;
+$.getJSON("https://northwind.now.sh/api/suppliers",function(data){
+
+    total = data.length;
+    $("#total").text(total);
+    $.each(data,function(key,value){
+        // console.log(value);
+        //data[i]
+        $("table").append("<tr>" +
+        "<td>" + value.id + "</td>" +
+        "<td>" + value.companyName + "</td>" +
+        "<td>" + value.address.city + "</td>" + 
+        "<td class='remove'>" + "Sil"  + "</td></tr>"
+        );
+    });
+
+    // $.map(data,function(value){
+    //     console.log(value);
+    // })
+})
+
+$(document).on("click",".remove",function(){
+    $(this).parent().fadeOut(700);
+    total = total - 1;
+    $("#total").text(total);
+})
+</script>
