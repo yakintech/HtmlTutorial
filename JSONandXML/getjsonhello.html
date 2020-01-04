@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <ul>
+
+    </ul>
+</body>
+
+</html>
+<script>
+    //servisten gelen name leri ul içerisindeki li lere yazdır
+    $.getJSON("https://northwind.now.sh/api/categories", function (data) {
+        for (i = 0; i < data.length;i++){
+            $("ul").append("<li>" + data[i].name + "</li>");
+            // $("ul").append("<li>" + data[i].supplier.address.city + "</li>");
+
+        }
+})
+
+
+// $.getJSON("https://northwind.now.sh/api/products", function (data) {
+
+//    console.log(data[0].supplier.address.city)
+// })
+</script>

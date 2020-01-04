@@ -1,0 +1,15 @@
+
+[
+    {
+        "name": "John", 
+        "age": 31, 
+        "country": "ABD",
+        "addressdetail":{
+            "name":"PTT yanı",
+            "postalcode":"34000"
+        }
+    },
+
+    {"name": "Ayça", "age": 25, "country": "Rusya"},
+    {"name": "Ali", "age": 51, "country": "Türkiye"}
+]
