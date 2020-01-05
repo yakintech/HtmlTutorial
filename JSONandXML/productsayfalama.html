@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        .pagination {
+            display: inline-block;
+        }
+
+        .pagination span {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+
+    </ul>
+
+    <div class="pagination">
+        <!-- <span>1</span>
+        <span>2</span> -->
+
+        <!-- <a href="#">1</a>
+        <a href="#">2</a> -->
+    </div>
+</body>
+
+</html>
+<script>
+    var urunler = [];
+    var toplamurunadet = 0;
+    var toplamsayfa = 0;
+    $.getJSON("https://northwind.now.sh/api/products", function (result) {
+      
+        $.map(result, function (urun) {
+            urunler.push(urun);
+            toplamurunadet = toplamurunadet + 1;
+        });
+        
+        //sayfa sayısını hesapla ( Bir sayfada 5 ürün gösterilecek)
+        toplamsayfa = Math.ceil(toplamurunadet / 5);
+      
+        for(i=1;i<=toplamsayfa;i++){
+            $(".pagination").append("<span id='"+i+"'>" + i + "</span>");
+        }
+
+        for(i=0;i<5;i++){
+            $("ul").append("<li>" + urunler[i].name + "</li>")
+        }
+    });
+
+    $(document).on("click","span",function(){
+        var tiklanilanid = $(this).attr('id');
+        var baslangic = ((tiklanilanid * 5) - 5);
+
+        $("ul li").remove();
+        for(i=0;i<5;i++){
+          var urun =  urunler[baslangic + i];
+          if(urun != undefined){
+            $("ul").append("<li>" + urun.name + "</li>");
+          }
+        }
+    })
+
+</script>

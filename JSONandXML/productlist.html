@@ -63,4 +63,17 @@
 
     })
 
+
+    $("#btntotal").click(function(){
+        var totalprice = 0;
+        $.getJSON("https://northwind.now.sh/api/products",function(koala){
+            $.each(koala,function(anahtar,urun){
+                totalprice = totalprice + urun.unitPrice;
+            });
+            
+            $("#total").text(totalprice);
+        });
+
+    })
+
 </script>
