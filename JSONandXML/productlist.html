@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Ürün Portal</h1>
+        <div class="form-group">
+            <!-- <input type="text" id="pname">
+            <button id="btnara" class="btn btn-primary">Ara</button> -->
+            <button id="btntotal" class="btn btn-primary">Toplam</button>
+
+        </div>
+
+        <div>
+            <span>Ürünlerin toplam fiyatı:</span>
+            <span id="total"></span>
+        </div>
+        <div>
+            <ul></ul>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    // var data = [];
+    // $.getJSON("https://northwind.now.sh/api/products", function (result) {
+    //     data = result;
+    // });
+    // console.log(data);
+
+
+    $("#btnara").click(function () {
+        $("ul li").remove();
+        var aranacak = $("#pname").val();
+        var aramasonuclari = [];
+        $.getJSON("https://northwind.now.sh/api/products", function (result) {
+
+            $.each(result, function (key, value) {
+                if (value.name.includes(aranacak)) {
+                    aramasonuclari.push(value);
+                    $("ul").append("<li>" + value.name + "</li>")
+                }
+            });
+
+        });
+
+        console.log(aramasonuclari);
+
+    })
+
+</script>
