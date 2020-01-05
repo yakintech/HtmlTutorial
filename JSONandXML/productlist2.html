@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div>
+        <input type="text" id="pcount">
+        <button>Getir</button>
+    </div>
+    <div>
+        <ul></ul>
+    </div>
+</body>
+
+</html>
+<script>
+    $("button").click(function () {
+        $("ul li").remove();
+        var adet = Number($("#pcount").val());
+
+        $.getJSON("https://northwind.now.sh/api/products", function (urunler) {
+
+            if (adet >= urunler.length) {
+               adet = urunler.length;
+            }
+            for (i = 0; i < adet; i++) {
+                    $("ul").append("<li>" + urunler[i].name+ " " +  (urunler[i].unitPrice * 1.18).toFixed(2) +  "</li>");
+             }
+
+
+            //slice metodu
+            // $.each(urunler.slice(0,adet),function(anahtar,urun){
+            //     $("ul").append("<li>" + urun.name + "</li>");
+            // })
+        })
+    })
+
+</script>
