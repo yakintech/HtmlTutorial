@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body style="text-align: center;">
+    <div>
+        <label>Name</label>
+        <input type="text" id="name">
+    </div>
+    <div>
+        <label>Description</label>
+        <input type="text" id="description">
+    </div>
+    <div>
+        <button>Kayıt</button>
+    </div>
+</body>
+</html>
+<script>
+$("button").click(function(){
+
+    // var nameval = $("#name").val();
+    // var descval = $("#description").val();
+    // var cat = {
+    //     name:nameval,
+    //     description:descval
+    // }
+
+    var category = new Object();
+    category.name = $("#name").val();
+    category.description = $("#description").val();
+
+
+    $.ajax({
+        url:"https://northwind.now.sh/api/categories",
+        type:"POST",
+        data:category,
+        success:function(sonuc){
+            console.log(sonuc);
+        },
+        error:function(hata){
+            console.log(hata);
+        }
+    })
+
+
+
+})
+
+</script>
