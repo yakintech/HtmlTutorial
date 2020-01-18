@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/is_js/0.9.0/is.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Ürün Ekleme Formu</h1>
+        <div class="form-group">
+            <select class="form-control">
+
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Name </label>
+            <input type="text" id="name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Unit Price</label>
+            <input id="unitPrice" class="form-control">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary">Kayıt</button>
+        </div>
+
+    </div>
+</body>
+
+</html>
+<script>
+    $.getJSON("https://northwind.now.sh/api/categories", function (data) {
+        $.map(data, function (item) {
+            $("select").append("<option value='" + item.id + "'>" + item.name + "</option>")
+        })
+    })
+
+
+    $("button").click(function () {
+
+        var product = new Object();
+        product.name = $("#name").val();
+        product.unitPrice = Number($("#unitPrice").val());
+        product.categoryId = $("select option:checked").val();
+
+        if (is.number(product.unitPrice) && is.not.empty(product.name)) {
+
+            $.ajax({
+                url: "https://northwind.now.sh/api/products",
+                type: "POST",
+                data: product,
+                success: function () {
+                    alert("İşlem Başarılı!")
+                }
+            })
+
+        }
+        else {
+            alert("Lütfen gerekli alanları doldurunuz");
+        }
+    })
+</script>
+
+
+
+<!-- {
+    "categoryId": 6,
+    "quantityPerUnit": "18 - 500 g pkgs.",
+    "unitPrice": 97,
+    "unitsInStock": 29,
+    "discontinued": true,
+    "name": "Mishi Kobe Niku"
+  }, -->
