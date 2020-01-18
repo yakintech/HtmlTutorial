@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Supplier Form</h1>
+        <div id="successmsg" class="alert alert-success" role="alert" style="display: none;">
+            İşlem Başarılı!
+          </div>
+          <div id="errormsg" class="alert alert-danger" role="alert" style="display: none;">
+            İşlem sırasında hata meydana geldi!
+          </div>
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" id="companyname" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Contact Name</label>
+            <input type="text" class="form-control" id="contactname">
+        </div>
+        <div class="form-group">
+            <label>Contact Title</label>
+            <input type="text" id="contacttitle" class="form-control">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary">Kayıt</button>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+
+$("button").click(function(){
+    var supplier = new Object();
+    supplier.companyNwame = $("#companyname").val();
+    supplier.contactNwame = $("#contactname").val();
+    supplier.contactTeitle = $("#contacttitle").val();
+
+    $.ajax({
+        url:"https://northwind.now.sh/api/suppliers",
+        type:"POST",
+        data:supplier,
+        success:function(){
+            $("#errormsg").css("display","none");
+            $("#successmsg").css("display","block");
+            // alert("İşlem Başarılı!");
+        },
+        error:function(){
+            $("#successmsg").css("display","none");
+            $("#errormsg").css("display","block");
+        }
+    });
+
+
+})
+</script>
