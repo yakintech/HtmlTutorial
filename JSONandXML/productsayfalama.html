@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
+
     <style>
         .pagination {
             display: inline-block;
@@ -42,35 +44,58 @@
     var toplamurunadet = 0;
     var toplamsayfa = 0;
     $.getJSON("https://northwind.now.sh/api/products", function (result) {
-      
+
         $.map(result, function (urun) {
             urunler.push(urun);
             toplamurunadet = toplamurunadet + 1;
         });
-        
+
         //sayfa sayısını hesapla ( Bir sayfada 5 ürün gösterilecek)
         toplamsayfa = Math.ceil(toplamurunadet / 5);
-      
-        for(i=1;i<=toplamsayfa;i++){
-            $(".pagination").append("<span id='"+i+"'>" + i + "</span>");
+
+        for (i = 1; i <= toplamsayfa; i++) {
+            $(".pagination").append("<span id='" + i + "'>" + i + "</span>");
         }
 
-        for(i=0;i<5;i++){
+        for (i = 0; i < 5; i++) {
             $("ul").append("<li>" + urunler[i].name + "</li>")
         }
     });
 
-    $(document).on("click","span",function(){
-        var tiklanilanid = $(this).attr('id');
-        var baslangic = ((tiklanilanid * 5) - 5);
+    // $(document).on("click","span",function(){
+    //     var tiklanilanid = $(this).attr('id');
+    //     var baslangic = ((tiklanilanid * 5) - 5);
 
+    //     $("ul li").remove();
+    //     for(i=0;i<5;i++){
+    //       var urun =  urunler[baslangic + i];
+    //       if(urun != undefined){
+    //         $("ul").append("<li>" + urun.name + "</li>");
+    //       }
+    //     }
+    // })
+
+    $(document).on("click", "span", function () {
         $("ul li").remove();
-        for(i=0;i<5;i++){
-          var urun =  urunler[baslangic + i];
-          if(urun != undefined){
-            $("ul").append("<li>" + urun.name + "</li>");
-          }
-        }
+        var sayfano = $(this).attr('id');
+        var result = PageGenerate(sayfano);
+        $.map(result,function(item){
+            $("ul").append("<li>" + item.name + "</li>");
+        })
+        
     })
+
+
+
+    function PageGenerate(pagenumber) {
+
+        var pagesize = 5;
+        var result = _(urunler)
+            .orderBy(['name'], ['asc'])
+            .drop((pagenumber - 1) * pagesize)
+            .take(pagesize)
+            .value();
+        return result;
+    }
 
 </script>
