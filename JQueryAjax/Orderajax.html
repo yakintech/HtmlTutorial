@@ -76,6 +76,9 @@
         url: "https://northwind.now.sh/api/orders",
         type: "GET",
         success: function (result) {
+
+            console.log(result);
+
             $.each(result, function (key, item) {
                 $("#orders").append(`<tr>
             <td>`+ item.freight + `</td>

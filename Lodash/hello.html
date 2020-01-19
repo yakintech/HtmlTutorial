@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+//_.find(users, function(o) { return o.age < 40; });
+
+
+$.getJSON("https://northwind.now.sh/api/products",function(data){
+
+    // $.map(data,function(item){
+    //     console.log(item.supplier)
+    // })
+    //fiyatı 40 den büyük olan ürünler nelerdir?
+    //var sonuc = _.filter(data, function(q){ return q.unitPrice > 40});
+
+    //country "USA" olanlar
+    //var sonuc = _.filter(data, function(q){ return q.supplier !== undefined});
+
+    var sonuc = _.filter(data, function(q){ return !_.isUndefined(q.supplier)});
+    var result = _.filter(sonuc, function(q){ return q.supplier.address.country == "USA"});
+    
+    //categoryId 3 olan
+    //var sonuc = _.filter(data, function(q){ return q.categoryId == 3});
+
+    console.log(result);
+})
+</script>
