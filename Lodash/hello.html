@@ -35,6 +35,11 @@ $.getJSON("https://northwind.now.sh/api/products",function(data){
     //var sonuc = _.filter(data, function(q){ return q.categoryId == 3});
 
     //datayı productname e göre sırala?
+    var sonuc = _.orderBy(data,['name']);
+    // var sonuc = _.orderBy(data,['name'],['asc']);
+
+
+    console.log(sonuc);
     
 })
 </script>
