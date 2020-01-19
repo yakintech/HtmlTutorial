@@ -28,12 +28,13 @@ $.getJSON("https://northwind.now.sh/api/products",function(data){
     //country "USA" olanlar
     //var sonuc = _.filter(data, function(q){ return q.supplier !== undefined});
 
-    var sonuc = _.filter(data, function(q){ return !_.isUndefined(q.supplier)});
-    var result = _.filter(sonuc, function(q){ return q.supplier.address.country == "USA"});
+    //var sonuc = _.filter(data, function(q){ return !_.isUndefined(q.supplier)});
+    //var result = _.filter(sonuc, function(q){ return q.supplier.address.country == "USA"});
     
     //categoryId 3 olan
     //var sonuc = _.filter(data, function(q){ return q.categoryId == 3});
 
-    console.log(result);
+    //datayı productname e göre sırala?
+    
 })
 </script>
