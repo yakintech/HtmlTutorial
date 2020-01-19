@@ -1,0 +1,9 @@
+{
+    "name":"IPhone",
+    "price":7500,
+    "category":{
+        "id":3,
+        "name":"Elektronik"
+    },
+    "ordercities":["İzmir","İstanbul"]
+}

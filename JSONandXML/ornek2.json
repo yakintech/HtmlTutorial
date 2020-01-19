@@ -1,0 +1,46 @@
+[
+    {
+      "id": 10271,
+      "customerId": "SPLIR",
+      "employeeId": 6,
+      "orderDate": "1996-08-01 00:00:00.000",
+      "requiredDate": "1996-08-29 00:00:00.000",
+      "shippedDate": "1996-08-30 00:00:00.000",
+      "shipVia": 2,
+      "freight": 4.54,
+      "shipName": "Split Rail Beer & Ale",
+      "shipAddress": {
+        "street": "P.O. Box 555",
+        "city": "Lander",
+        "region": "WY",
+        "postalCode": 82520,
+        "country": "USA"
+      },
+      "details": [
+        {
+          "productId": 33,
+          "unitPrice": 2,
+          "quantity": 24,
+          "discount": 0
+        }
+      ]
+    },
+    {
+      "id": 10266,
+      "customerId": "WARTH",
+      "employeeId": 3,
+      "orderDate": "1996-07-26 00:00:00.000",
+      "requiredDate": "1996-09-06 00:00:00.000",
+      "shippedDate": "1996-07-31 00:00:00.000",
+      "shipVia": 3,
+      "freight": 25.73,
+      "shipName": "Wartian Herkku",
+      "shipAddress": {
+        "street": "Torikatu 38",
+        "city": "Oulu",
+        "region": "NULL",
+        "postalCode": 90110,
+        "country": "Finland"
+      }
+    }
+]
