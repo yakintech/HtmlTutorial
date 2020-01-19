@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-center">
+            <h1>Orders</h1>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Freight</th>
+                    <th>Order Date</th>
+                    <th>Ship Name</th>
+                    <th>İşlem</th>
+                </tr>
+            </thead>
+            <tbody id="orders">
+
+            </tbody>
+
+        </table>
+        <button data-toggle="modal" data-target="#exampleModal">Modal AÇ</button>
+
+        <div class="modal fade" id="orderdetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Supplier Address</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ProductID</th>
+                                <th>Unit Price</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                       <tbody id="orderdetailstable">
+                         
+                       </tbody>
+
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</body>
+
+</html>
+<script>
+    $.ajax({
+        url: "https://northwind.now.sh/api/orders",
+        type: "GET",
+        success: function (result) {
+            $.each(result, function (key, item) {
+                $("#orders").append(`<tr>
+            <td>`+ item.freight + `</td>
+            <td>`+ item.orderDate + `</td>
+            <td>`+ item.shipName + `</td>
+            <td><button class='btn btn-primary' value='`+ item.id + `'>Detail</button></td>
+            </tr>`)
+            })
+        }
+    });
+
+    $(document).on("click", "button", function () {
+        $("#orderdetailstable tr").remove();
+        var id = $(this).val();
+        $.getJSON("https://northwind.now.sh/api/orders/" + id,function(result){
+            $.each(result.details,function(key,item){
+                $("#orderdetailstable").append(`<tr>
+                <td>`+ item.productId+`</td>
+                <td>`+ item.unitPrice+`</td>
+                <td>`+ item.quantity+`</td>
+
+                </tr>`)
+            })
+        });
+
+        $('#orderdetails').modal('toggle');
+
+    });
+</script>
