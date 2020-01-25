@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+var kisi = new Object();
+kisi.ad = "Çağatay";
+kisi.soyad = "Yıldız";
+
+
+var oyun = new Object();
+oyun.start = function(){
+    console.log("START MARIO!!");
+}
+oyun.name = "BA GAME!";
+oyun.end = function(point){
+    console.log("Total: " + point);
+}
+oyun.users = [];
+oyun.properties = {};
+
+oyun.start();
+oyun.end(50);
+
+//Bir oyun objesi tanımla. İçerisine start function tanımla. function dışarıdan oyuncunun adını alacak. Start tetiklendiği an mevcut tarihi ve oyuncu adını ekrana yazdır
+
+var game = new Object();
+game.start = function(username){
+    console.log(username + " " + Date.now());
+}
+
+</script>
